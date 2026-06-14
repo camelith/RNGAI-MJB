@@ -119,6 +119,13 @@ class Extended_PreInit_EventHandlers
 		init="call compile preprocessFileLineNumbers '\RNG_AI\scripts\RNG_init.sqf'";
 	};
 };
+class Extended_PreInit_EventHandlers
+{
+	class RNG_mod
+	{
+		init="call compile preprocessFileLineNumbers '\RNG_AI\XEH_postInit.sqf'";
+	};
+};
 class Extended_InitPost_EventHandlers
 {
 	class CAManBase

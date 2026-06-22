@@ -1,7 +1,6 @@
 params ["_logic", "_units", "_activated"];
 
-if (!_activated) exitWith {};
-if (!isServer) exitWith { deleteVehicle _logic; };
+if (!_activated || {!local _logic}) exitWith {};
 
 private _target = attachedTo _logic;
 if (isNull _target) then {
@@ -10,7 +9,7 @@ if (isNull _target) then {
 };
 
 if (isNull _target) exitWith {
-	["Module must be placed on a unit."] remoteExec ["systemChat", 0];
+	systemChat "Module must be placed on a unit.";
 	deleteVehicle _logic;
 };
 

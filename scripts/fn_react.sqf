@@ -15,7 +15,7 @@ if (!(_unit getvariable ["RNG_incombat",false]) && { isNull (objectParent _unit)
 		if (currentWeapon _unit isEqualTo binocular _unit) then {
 			_unit selectWeapon primaryWeapon _unit;
 		};
-		if ((behaviour _unit isEqualTo "SAFE" OR { behaviour _unit isEqualTo "AWARE" { OR count _alltargets isEqualTo 0 OR { _firer distance _unit > 100 OR { vehicle _firer iskindof "Tank" }}}}) && { !(side _firer isEqualTo side _unit) && { time > _cooldown && { getsuppression _unit > 0.5 }}}) then {
+		if ((behaviour _unit isEqualTo "SAFE" OR { behaviour _unit isEqualTo "AWARE" OR { count _alltargets isEqualTo 0 OR { _firer distance _unit > 100 OR { vehicle _firer iskindof "Tank" }}}}) && { !(side _firer isEqualTo side _unit) && { time > _cooldown && { getsuppression _unit > 0.5 }}}) then {
 			[_unit,_firer] spawn RNG_fnc_cover;
 		} else {
 			[_unit,_firer] spawn RNG_fnc_combat;

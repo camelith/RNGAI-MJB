@@ -54,7 +54,7 @@ while {alive _unit && {_unit getvariable ["RNG_incombat",false] && {!(_unit getv
 		} else {
 			_infront=objNull;
 		};
-		if (!(unitCombatMode _unit isEqualTo "BLUE") && { [side _infront, side _unit] call BIS_fnc_sideIsFriendly && {!(side _infront isEqualTo civilian && {(_infront isKindOf 'CAManBase' || {count crew _infront > 0}) && {currentWeapon _infront isEqualTo "" || { [side _unit, civilian] call BIS_fnc_sideIsFriendly } } )} }  }) then {
+		if (!(unitCombatMode _unit isEqualTo "BLUE") && { [side _infront, side _unit] call BIS_fnc_sideIsFriendly && {!(side _infront isEqualTo civilian && {(_infront isKindOf 'CAManBase' || {count crew _infront > 0}) && {currentWeapon _infront isEqualTo "" || { [side _unit, civilian] call BIS_fnc_sideIsFriendly } } } ) }  }) then {
 			for "_i" from 1 to (round (random 20)) do {
 				[_unit, currentmuzzle _unit] call BIS_fnc_fire;
 				sleep 0.01;

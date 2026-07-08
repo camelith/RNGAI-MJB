@@ -119,7 +119,7 @@ class Extended_PreInit_EventHandlers
 		init="call compile preprocessFileLineNumbers '\RNG_AI\scripts\RNG_init.sqf'";
 	};
 };
-class Extended_PreInit_EventHandlers
+class Extended_PostInit_EventHandlers
 {
 	class RNG_mod
 	{

@@ -224,7 +224,7 @@ while {alive _unit && {local _unit}} do {
 	};
 	if ((time - _starttime) % 1 > 0.5) then {
 		private _anim = animationState _unit;
-		if (("tacs" in _anim OR {"run" in _anim OR {"evas" in _anim}) && {((vectorMagnitude (velocityModelSpace _unit)) < 1.5)}) then {_unit playactionnow "stop";_unit setVelocity [0, 0, 0];_type=_types selectRandomWeighted _weight;};
+		if (("tacs" in _anim OR {"run" in _anim OR {"evas" in _anim}}) && {((vectorMagnitude (velocityModelSpace _unit)) < 1.5)}) then {_unit playactionnow "stop";_unit setVelocity [0, 0, 0];_type=_types selectRandomWeighted _weight;};
 		if ((_unit ammo currentweapon _unit < 2) && {_cancrouch && {!("reload" in (gesturestate _unit))}}) then {
 			_stance=["MIDDLE","DOWN"] selectRandomWeighted [1,0.2];
 			if (!((unitpos _unit) isEqualTo _stance)) then {
@@ -240,7 +240,6 @@ while {alive _unit && {local _unit}} do {
 	};
 	private _randomstop=random 15;
 	if (_randomstop > (15 - _skill)) then {_unit playactionnow "stop";_unit setVelocity [0, 0, 0];sleep (_skill/10)};
-	};
 	if (( animationstate _unit isEqualTo "amovpercmstpsraswrfldnon" OR { animationstate _unit isEqualTo "amovpknlmstpsraswrfldnon" } ) && {((vectorMagnitude (velocityModelSpace _unit)) < 1)}) then {_unit setVelocity [0, 0, 0];};
 	_unit setvariable ["RNG_target", _target];
 	sleep 0.02;

@@ -44,6 +44,7 @@ while {alive _unit && {_unit getvariable ["RNG_incombat",false] && {!(_unit getv
 			sleep 0.06;
 		};
 	};
+
 	////Firing
 	_reldir=_unit getreldir _target;
 	if ((!isNull _target && {((_reldir) < 25.55555555555 OR {(_reldir) > 335.555555555})}) && {( ([_unit, "VIEW",_target] checkVisibility [eyepos _unit, aimpos _target]) > 0 OR { ([_unit, "VIEW",_target] checkVisibility [aimpos _unit, eyepos _target]) > 0 } ) && { !(_target isKindOf "CAManBase" && {currentWeapon _unit isEqualTo secondaryWeapon _unit} ) } }) then {
@@ -60,5 +61,6 @@ while {alive _unit && {_unit getvariable ["RNG_incombat",false] && {!(_unit getv
 			};
 		} else {sleep 0.5;};
 	};
+
 sleep 0.01;	
 };		

@@ -61,6 +61,5 @@ while {alive _unit && {_unit getvariable ["RNG_incombat",false] && {!(_unit getv
 			};
 		} else {sleep 0.5;};
 	};
-
 sleep 0.01;	
 };		

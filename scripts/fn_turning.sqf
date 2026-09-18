@@ -43,11 +43,11 @@ while {alive _unit && {_unit getvariable ["RNG_incombat",false] && {!(_unit getv
 			_unit setvectorup [0,0,1];
 			sleep 0.06;
 		};
-	}; 
-	
+	};
+
 	////Firing
 	_reldir=_unit getreldir _target;
-	if ((!isNull _target && {((_reldir) < 25.55555555555 OR {(_reldir) > 335.555555555})}) && {( ([_unit, "VIEW",_target] checkVisibility [eyepos _unit, aimpos _target]) > 0 OR { ([_unit, "VIEW",_target] checkVisibility [aimpos _unit, eyepos _target]) > 0 } )}) then {
+	if ((!isNull _target && {((_reldir) < 25.55555555555 OR {(_reldir) > 335.555555555})}) && {( ([_unit, "VIEW",_target] checkVisibility [eyepos _unit, aimpos _target]) > 0 OR { ([_unit, "VIEW",_target] checkVisibility [aimpos _unit, eyepos _target]) > 0 } ) && { !(_target isKindOf "CAManBase" && {currentWeapon _unit isEqualTo secondaryWeapon _unit} ) } }) then {
 		_infrontline=lineIntersectsSurfaces [eyePos _unit,((eyepos _unit) vectorAdd (_unit weaponDirection currentWeapon _unit vectorMultiply 30)), _unit, objNull, true, 1];
 		if (count _infrontline > 0) then {
 			_infront=(_infrontline select 0) select 2;
